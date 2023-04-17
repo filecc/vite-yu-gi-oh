@@ -1,32 +1,22 @@
 <template>
-  <AppHeader />
-
-  <div class="pt-5">
-    <div v-if="store.loading">
-      <Loader />
-    </div>
-    <div v-else>
-      <CardList />
-    </div>
-  </div>
+  <Home />
 </template>
 
 <script>
 import { store } from './store';
 import axios from 'axios';
-import Loader from './components/Loader.vue';
-import AppHeader from './components/AppHeader.vue';
-import CardList from './components/CardList.vue';
+import Home from './components/Home.vue';
+import CardDetail from './components/CardDetail.vue';
+
 
 export default {
   components: {
-    Loader,
-    AppHeader,
-    CardList
-  },
+    Home
+},
   data() {
     return {
       store,
+      
     }
   },
   methods: {
@@ -51,7 +41,8 @@ export default {
   },
   mounted() {
     this.getAllCards();
-  }
+  },
+  
 }
 </script>
 

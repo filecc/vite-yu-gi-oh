@@ -1,6 +1,6 @@
 <template>
     <div v-if="card">
-        <div class="card mx-auto" style="width: 13rem;">
+        <div @click="setSelecttedCardID()" class="card mx-auto" style="width: 13rem;">
             <img :src="card.card_images[0].image_url" class="card-img-top img-fluid" alt="...">
             <!-- <div class="card-body">
                 <h5 class="card-title"> {{ card.name }}</h5>
@@ -13,8 +13,19 @@
 
 <script>
 export default {
+    data(){
+        return {
+            cardID : this.id,
+        }
+    },
     props: {
-        card: Object
+        card: Object,
+        id: Number,
+    },
+    methods: {
+        setSelecttedCardID(){
+            console.log(this.cardID)
+        }
     }
 }
 </script>
