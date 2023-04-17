@@ -19,4 +19,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card{
+    width: 13rem;
+    @media screen and (max-width: 500px) {
+        width: 16rem;
+    }
+}
+</style>

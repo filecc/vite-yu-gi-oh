@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     getAllCards() {
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+      axios.get(store.URL)
         .then(res => {
           store.cardsList = res.data.data;
           store.loading = false;
@@ -51,7 +51,6 @@ export default {
   },
   mounted() {
     this.getAllCards();
-
   }
 }
 </script>
