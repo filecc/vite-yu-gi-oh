@@ -17,6 +17,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+    padding-top: 10rem;
+}
 .loading {
     --speed-of-animation: 0.9s;
     --gap: 6px;

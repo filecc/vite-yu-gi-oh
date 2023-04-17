@@ -1,5 +1,11 @@
 <template>
-  <Home />
+  <div v-if="!store.showDetails">
+    <Home />
+  </div>
+  <div v-if="store.showDetails">
+    <CardDetail />
+  </div>
+
 </template>
 
 <script>
@@ -11,7 +17,8 @@ import CardDetail from './components/CardDetail.vue';
 
 export default {
   components: {
-    Home
+    Home,
+    CardDetail
 },
   data() {
     return {

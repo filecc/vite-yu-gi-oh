@@ -1,6 +1,6 @@
 <template>
    <AppHeader />
-   <div class="pt-5">
+   <div>
     <div v-if="store.loading">
       <Loader />
     </div>

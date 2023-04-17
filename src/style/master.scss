@@ -21,8 +21,3 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/bootstrap";
-
-
-#app{
-    padding-top: 6rem;
-}
