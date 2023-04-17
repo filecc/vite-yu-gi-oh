@@ -9,7 +9,8 @@
                     <select @change="event => changeArchetype(event)" class="form-select" name="archetypesSelect"
                         id="archetypesSelect">
                         <option value="all">ALL</option>
-                        <option v-for="item in store.archetypes.sort()" :value="item">{{ item.toUpperCase() }}</option>
+                        <option v-for="item in store.archetypes.sort()"
+                            :value="item">{{ item.toUpperCase() }}</option>
                     </select>
                 </div>
 
@@ -30,8 +31,8 @@ export default {
     },
     methods: {
         changeArchetype(e) {
-           store.loading = true;
-            if (e.target.options.selectedIndex > -1) {
+            store.loading = true;
+            if (e.target.options.selectedIndex >= 0) {
                 if (e.target.options[e.target.options.selectedIndex].value != 'all') {
                     store.URL = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${e.target.options[e.target.options.selectedIndex].value}`;
                     axios.get(store.URL)
@@ -46,7 +47,8 @@ export default {
                             store.cardsList = res.data.data;
                             store.loading = false;
 
-                        })
+                        });
+                      
                 }
 
             }

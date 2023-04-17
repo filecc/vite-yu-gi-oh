@@ -48,15 +48,54 @@
                                <small>{{ singleCard.type }}</small>
                             </div>
                         </div>
+                        <div class="row text-center text-md-start">
+                            <div class="col-12 col-md-4">
+                                <p class="fw-bold m-0 p-0">Description</p>
+                            </div>
+                            <div class="col-12 col-md-8">
+                               <small>{{ singleCard.desc }}</small>
+                            </div>
+                        </div>
+                        <div v-if="singleCard.atk" class="row text-center text-md-start">
+                            <div class="col-12 col-md-4">
+                                <p class="fw-bold m-0 p-0">ATK</p>
+                            </div>
+                            <div class="col-12 col-md-8">
+                               <small>{{ singleCard.atk }}</small>
+                            </div>
+                        </div>
+                        <div v-if="singleCard.def" class="row text-center text-md-start">
+                            <div class="col-12 col-md-4">
+                                <p class="fw-bold m-0 p-0">DEF</p>
+                            </div>
+                            <div class="col-12 col-md-8">
+                               <small>{{ singleCard.def }}</small>
+                            </div>
+                        </div>
+                        <div v-if="singleCard.card_sets"  class="row text-center text-md-start mt-2">
+                            <div class="col-12 col-md-4">
+                                <p class="fw-bold m-0 p-0">SET</p>
+                               
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <ul v-for="set in singleCard.card_sets" class="list-unstyled">
+                                    <li>
+
+                                            <h6 class="m-0 p-0">{{ set.set_name }}</h6>
+                                            <p class="p-0 m-0" > code: {{ set.set_code }} </p>
+                                            <p class="p-0 m-0" > price: {{ set.set_price }} </p>
+                                            <p class="p-0 m-0" > rarity: {{ set.set_rarity }} </p>
+                                        
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                           
+                        </div>
                        
                     </div>
                 </div>
-                <div class="row mt-2 text-center text-md-start">
-                    <div class="col-11 col-md-12 mx-auto">
-                        <p class="fw-bold m-0 p-0">Description</p>
-                        <small>{{ singleCard.desc }}</small>
-                    </div>
-                </div>
+               
                 <div class="mt-2">
                     <button @click="() => store.showDetails = false" class="btn btn-primary">Back to list</button>
                 </div>
@@ -85,10 +124,12 @@ export default {
                     this.singleCard = res.data.data[0];
                     store.loading = false;
                 });
+                
         }
     },
     mounted() {
         this.getSingleCard();
+       
     },
     components: { Loader }
 }

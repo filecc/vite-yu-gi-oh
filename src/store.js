@@ -5,7 +5,7 @@ export const store = reactive({
     cardsList: null,
     archetypes: null,
     loading: true,
-    archetypeSelected: 'all',
     cardSelectedId: null,
     showDetails: false,
+    optionSelected: 0,
 });
